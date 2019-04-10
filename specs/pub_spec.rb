@@ -29,10 +29,23 @@ class TestPub < MiniTest::Test
   end
 
   def test_recieve_cash_from_customer
-    customer1 = Customer.new("Bob", 50)
+    customer1 = Customer.new("Bob", 65, 50)
     customer1.buy_drink(@guiness)
     @pub.recieve_cash_from_customer(customer1, @guiness)
     assert_equal(3, @pub.cash_in_till)
   end
+
+  def test_is_customer_over_18
+    customer1 = Customer.new("Bob", 65, 50)
+    assert_equal(true, @pub.is_customer_over_18?(customer1))
+  end
+
+  def test_can_serve
+    customer1 = Customer.new("Bob", 65, 50)
+    @pub.serve(customer1, @guiness)
+    assert_equal(3, @pub.cash_in_till)
+    assert_equal([@vodka, @wine], @pub.drinks)
+  end
+
 
 end

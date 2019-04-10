@@ -17,5 +17,17 @@ class Pub
     @cash_in_till += customer.buy_drink(drink)
   end
 
+  def is_customer_over_18?(customer)
+    return customer.age >= 18 ? true : false
+  end
+
+  def serve(customer, drink)
+    if is_customer_over_18?(customer) && customer.has_enough_funds_to_buy_drink?(drink)
+      recieve_cash_from_customer(customer, drink)
+      give_drink(drink)
+    else
+      return "Sorry!"
+    end
+  end
 
 end
