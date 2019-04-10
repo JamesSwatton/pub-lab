@@ -10,10 +10,12 @@ class Pub
 
   def give_drink(drink)
     drinks_index = @drinks.index(drink)
-    @drinks.delete_at(drinks_index)  
+    @drinks.delete_at(drinks_index)
   end
 
-
+  def recieve_cash_from_customer(customer, drink)
+    @cash_in_till += customer.buy_drink(drink)
+  end
 
 
 end

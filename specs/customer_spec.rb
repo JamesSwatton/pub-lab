@@ -15,7 +15,7 @@ class TestCustomer < MiniTest::Test
   def test_deduct_drink_cost_from_wallet
     customer1 = Customer.new("Bob", 50)
     guiness = Drink.new("guiness", 2)
-    customer1.deduct_cash_from_wallet(guiness.price)
+    customer1.buy_drink(guiness)
     assert_equal(48, customer1.cash_in_wallet)
   end
 
