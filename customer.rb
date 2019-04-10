@@ -8,8 +8,15 @@ class Customer
     @cash_in_wallet = cash_in_wallet
   end
 
-  def deduct_cash_from_wallet(amount)
-    return @cash_in_wallet -= amount
+  def deduct_cash_from_wallet(drink_price)
+    return @cash_in_wallet -= drink_price
   end
 
+  def has_enough_funds_to_buy_drink?(drink_price)
+    if @cash_in_wallet >= drink_price
+      return true
+    else
+      return false
+    end
+  end
 end

@@ -8,4 +8,12 @@ class Pub
     @drinks = drinks
   end
 
+  def give_drink(drink)
+    drinks_index = @drinks.index(drink)
+    @drinks.delete_at(drinks_index)  
+  end
+
+
+
+
 end
